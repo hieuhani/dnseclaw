@@ -1,9 +1,14 @@
 {
   "name": "dnse-cli",
   "module": "src/index.ts",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json"
+  },
+  "bin": {
+    "dnse": "bin/dnse-cli.js",
+    "dnse-cli": "bin/dnse-cli.js"
   },
   "devDependencies": {
     "@types/bun": "latest"
