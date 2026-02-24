@@ -101,9 +101,9 @@ entradex trade cancel <accountNo> <orderId> <marketType> <tradingToken>
 
 Parameters:
 
-- `marketType`: `HOSE`, `HNX`, `UPCOM`
-- `side`: `buy`, `sell`
-- `orderType`: for example `lo`, `lo_to`, `mp`, `mok`
+- `marketType`: `STOCK`, `DERIVATIVE`
+- `side`: `NB`, `NS`
+- `orderType`: for example `ATO`, `ATC`, `LO`, `MTL`, `MOK`, `ATC`, `PLO`
 
 ### Order
 
@@ -149,5 +149,5 @@ entradex auth send-otp user@example.com
 entradex auth create-token smart_otp <passcode>
 
 # 4) Place an order
-entradex trade order HOSE VIC buy lo 15000 100 <trading-token>
+entradex trade order STOCK VIC buy lo 15000 100 <trading-token>
 ```

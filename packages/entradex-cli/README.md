@@ -105,10 +105,10 @@ bun run index.ts trade cancel <accountNo> <orderId> <marketType> <tradingToken>
 ```
 
 **Parameters:**
-- `marketType`: Market type (e.g., `HOSE`, `HNX`, `UPCOM`)
+- `marketType`: Market type (e.g., `STOCK`, `DERIVATIVE`)
 - `symbol`: Stock symbol (e.g., `VIC`, `VCB`)
-- `side`: Order side (`buy` or `sell`)
-- `orderType`: Order type (e.g., `lo`, `lo_to`, `mp`, `mok`)
+- `side`: Order side (`NB` or `NS`)
+- `orderType`: Order type (e.g., `ATO`, `ATC`, `LO`, `MTL`, `MOK`, `ATC`, `PLO`)
 - `price`: Order price
 - `quantity`: Order quantity
 - `tradingToken`: Trading token (obtained via `dnse auth create-token`)
@@ -185,12 +185,12 @@ bun run index.ts auth send-otp user@example.com
 bun run index.ts auth create-token smart_otp YOUR_PASSCODE
 
 # Place the order
-bun run index.ts trade order HOSE VIC buy lo 15000 100 YOUR_TRADING_TOKEN
+bun run index.ts trade order STOCK VIC NB LO 15000 100 YOUR_TRADING_TOKEN
 ```
 
 ### View order history
 ```bash
-bun run index.ts order history 123456 HOSE --from 2025-01-01 --to 2025-01-31 --page-size 50
+bun run index.ts order history 123456 STOCK --from 2025-01-01 --to 2025-01-31 --page-size 50
 ```
 
 ### Debug mode
