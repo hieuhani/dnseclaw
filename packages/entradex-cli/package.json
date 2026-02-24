@@ -1,7 +1,7 @@
 {
   "name": "entradex-cli",
   "module": "src/index.ts",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json"
@@ -10,6 +10,11 @@
     "entradex": "bin/entradex-cli.js",
     "entradex-cli": "bin/entradex-cli.js"
   },
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/bun": "latest"
   },

@@ -1,5 +1,7 @@
 import type { Command } from 'commander';
 import * as readline from 'node:readline';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 import { clearConfig, getConfig, setConfig } from '../config.js';
 
 export function registerConfigCommands(program: Command): void {
@@ -18,13 +20,13 @@ export function registerConfigCommands(program: Command): void {
       if (options.key && options.key !== '') {
         config.apiKey = options.key;
       } else {
-        config.apiKey = await promptInput('Enter API Key: ');
+        config.apiKey = await promptInput('Enter EntradeX API Key: ');
       }
 
       if (options.secret && options.secret !== '') {
         config.apiSecret = options.secret;
       } else {
-        config.apiSecret = await promptInput('Enter API Secret: ');
+        config.apiSecret = await promptInput('Enter EntradeX API Secret: ');
       }
 
       if (options.url) {
@@ -94,7 +96,5 @@ function maskKey(key?: string): string {
 }
 
 function configPath(): string {
-  const { homedir } = require('node:os');
-  const { join } = require('node:path');
   return join(homedir(), '.entradex-cli', 'config.json');
 }
