@@ -101,9 +101,31 @@ entradex trade cancel <accountNo> <orderId> <marketType> <tradingToken>
 
 Parameters:
 
-- `marketType`: `STOCK`, `DERIVATIVE`
-- `side`: `NB`, `NS`
-- `orderType`: for example `ATO`, `ATC`, `LO`, `MTL`, `MOK`, `ATC`, `PLO`
+- `marketType` (enum): `STOCK`, `DERIVATIVE`
+- `side` (enum): `NB` (buy), `NS` (sell)
+- `orderType` (enum): `ATO`, `ATC`, `LO`, `MTL`, `MOK`, `PLO`
+  - `ATO`: At The Opening
+  - `ATC`: At The Close
+  - `LO`: Limit Order
+  - `MTL`: Market To Limit
+  - `MOK`: Market Order Kill
+  - `PLO`: Post Limit Order
+- `price` (number): unit price; follow DNSE tick-size/market constraints
+  - If `orderType=LO`, `price` must be greater than `0`.
+  - If `orderType` is anything other than `LO` (`ATO`, `ATC`, `MTL`, `MOK`, `PLO`), `price` must be exactly `0`.
+- `quantity` (integer): order quantity; must satisfy market lot rules
+  - For `marketType=STOCK`, valid quantity is either:
+    - Board lot: multiples of 100 (`100`, `200`, ...)
+    - Odd lot: integers from `1` to `99`
+  - For `marketType=STOCK`, values like `101`, `102`, ... are invalid odd lots and must be rejected.
+- `tradingToken` (string): token from `entradex auth create-token`
+
+Normalization rules for user intent:
+
+- If user says `buy`/`sell`, map to `NB`/`NS`.
+- Uppercase enum-style params before execution (`marketType`, `side`, `orderType`).
+- If user provides an unsupported enum value, stop and ask for a valid value.
+- If `orderType` is not supported by the target market/session, stop and ask user to choose a supported type.
 
 ### Order
 
@@ -149,5 +171,5 @@ entradex auth send-otp user@example.com
 entradex auth create-token smart_otp <passcode>
 
 # 4) Place an order
-entradex trade order STOCK VIC buy lo 15000 100 <trading-token>
+entradex trade order STOCK VIC NB LO 15000 100 <trading-token>
 ```
