@@ -1,6 +1,6 @@
 # entradex-cli
 
-CLI for DNSE API - A Vietnamese securities trading platform.
+CLI for DNSE EntradeX API - A Vietnamese securities trading platform.
 
 ## Installation
 
@@ -10,7 +10,7 @@ bun install
 
 ## Configuration
 
-The CLI requires API credentials to authenticate with the DNSE API. You can provide credentials in three ways (in order of priority):
+The CLI requires API credentials to authenticate with the DNSE EntradeX API. You can provide credentials in three ways (in order of priority):
 
 ### 1. Config File (Recommended)
 
