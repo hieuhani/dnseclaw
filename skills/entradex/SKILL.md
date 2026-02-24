@@ -1,6 +1,6 @@
 ---
 name: entradex
-description: Use the EntradeX CLI to interact with DNSE EntradeX API for authentication, account data, market data, orders, and trading operations.
+description: Use the EntradeX CLI for DNSE workflows. Use when (1) setting DNSE API credentials via env vars or config file, (2) reading account, market, and order data, (3) placing, modifying, or canceling real trades.
 metadata:
   requires:
     bins:
