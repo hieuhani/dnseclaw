@@ -2,22 +2,21 @@
 name: entradex
 description: Use the EntradeX CLI for DNSE workflows. Use when (1) setting DNSE API credentials via env vars or config file, (2) reading account, market, and order data, (3) placing, modifying, or canceling real trades.
 metadata:
-  {
-    "entradex":
-      {
-        "requires": { "bins": ["entradex"] },
-        "install":
-          [
-            {
-              "id": "node",
-              "kind": "node",
-              "package": "entradex-cli",
-              "bins": ["entradex"],
-              "label": "Install EntradeX CLI (npm)",
-            },
-          ],
-      },
-  }
+  entradex:
+    requires:
+      bins:
+        - entradex
+        - entradex-cli
+      env:
+        - DNSE_API_KEY
+        - DNSE_API_SECRET
+    install:
+      - kind: node
+        package: entradex-cli
+        bins:
+          - entradex
+        label: Install EntradeX CLI (npm)
+    homepage: https://www.npmjs.com/package/entradex-cli
 ---
 
 # EntradeX CLI
