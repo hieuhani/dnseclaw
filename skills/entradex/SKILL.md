@@ -2,32 +2,31 @@
 name: entradex
 description: Use the EntradeX CLI for DNSE workflows. Use when (1) setting DNSE API credentials via env vars or config file, (2) reading account, market, and order data, (3) placing, modifying, or canceling real trades.
 metadata:
-  requires:
-    bins:
-      - entradex
-    env:
-      - DNSE_API_KEY
-      - DNSE_API_SECRET
-    files:
-      - ~/.entradex-cli/config.json
-  install:
-    - id: node
-      kind: node
-      package: entradex-cli
-      bins:
-        - entradex
-        - entradex-cli
-      label: Install EntradeX CLI (npm)
-  homepage: https://github.com/hieuhani/dnseclaw/tree/main/packages/entradex-cli
-  license: MIT
-  author: hieuhani
+  {
+    "entradex":
+      {
+        "requires": { "bins": ["entradex"] },
+        "install":
+          [
+            {
+              "id": "node",
+              "kind": "node",
+              "package": "entradex-cli",
+              "bins": ["entradex"],
+              "label": "Install EntradeX CLI (npm)",
+            },
+          ],
+      },
+  }
 ---
 
 # EntradeX CLI
 
-Command line interface for the DNSE EntradeX API.
+Install
 
-**Package Source:** [github.com/hieuhani/dnseclaw](https://github.com/hieuhani/dnseclaw/tree/main/packages/entradex-cli)
+```bash
+npm i -g entradex-cli
+```
 
 ## Usage
 
@@ -59,13 +58,11 @@ entradex config clear
 - Verify the npm package: `npm view entradex-cli` - check author is `hieuhani` and repository matches
 - Inspect package contents: `npm pack entradex-cli --dry-run` or view on [npmjs.com](https://www.npmjs.com/package/entradex-cli)
 - Treat `DNSE_API_KEY` and `DNSE_API_SECRET` as highly sensitive trading credentials
-- Use a test/dry-run account first before providing production credentials
 
 **Autonomous execution warning:**
 
 - This skill can place **real trades** using provided credentials
 - Consider using a separate limited-permission account
-- Always test with `dry-run` commands first
 - Rotate API keys if you suspect unauthorized access
 
 ## Global Options
