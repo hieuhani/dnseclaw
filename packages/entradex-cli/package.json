@@ -1,7 +1,16 @@
 {
   "name": "entradex-cli",
-  "module": "src/index.ts",
   "version": "0.0.3",
+  "description": "CLI for DNSE API - A Vietnamese securities trading platform.",
+  "author": "hieuhani <hieutran.fu@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hieuhani/dnseclaw.git",
+    "directory": "packages/entradex-cli"
+  },
+  "homepage": "https://github.com/hieuhani/dnseclaw#readme",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json"

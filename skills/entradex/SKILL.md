@@ -18,22 +18,21 @@ metadata:
         - entradex
         - entradex-cli
       label: Install EntradeX CLI (npm)
+  homepage: https://github.com/hieuhani/dnseclaw/tree/main/packages/entradex-cli
+  license: MIT
+  author: hieuhani
 ---
 
 # EntradeX CLI
 
 Command line interface for the DNSE EntradeX API.
 
+**Package Source:** [github.com/hieuhani/dnseclaw](https://github.com/hieuhani/dnseclaw/tree/main/packages/entradex-cli)
+
 ## Usage
 
 ```bash
 entradex [global-options] [command]
-```
-
-Local workspace usage (without global install):
-
-```bash
-bun run packages/entradex-cli/src/index.ts [global-options] [command]
 ```
 
 ## Configuration
@@ -44,11 +43,6 @@ Credential priority order:
 2. Environment variables (`DNSE_API_KEY`, `DNSE_API_SECRET`)
 3. Global command options (`--api-key`, `--api-secret`)
 
-Security note:
-- This skill may install `entradex-cli` from npm to provide the `entradex` binary.
-- Treat `DNSE_API_KEY` and `DNSE_API_SECRET` as sensitive trading credentials.
-- Prefer local workspace execution and only use trusted package sources if you choose a global install.
-
 Setup and inspect config:
 
 ```bash
@@ -58,12 +52,21 @@ entradex config get
 entradex config clear
 ```
 
-All command examples below use the `entradex` command name. In this repository,
-run the same commands with:
+## Security & Safety
 
-```bash
-bun run packages/entradex-cli/src/index.ts <command> [args...]
-```
+**Before using this skill:**
+
+- Verify the npm package: `npm view entradex-cli` - check author is `hieuhani` and repository matches
+- Inspect package contents: `npm pack entradex-cli --dry-run` or view on [npmjs.com](https://www.npmjs.com/package/entradex-cli)
+- Treat `DNSE_API_KEY` and `DNSE_API_SECRET` as highly sensitive trading credentials
+- Use a test/dry-run account first before providing production credentials
+
+**Autonomous execution warning:**
+
+- This skill can place **real trades** using provided credentials
+- Consider using a separate limited-permission account
+- Always test with `dry-run` commands first
+- Rotate API keys if you suspect unauthorized access
 
 ## Global Options
 
