@@ -2,23 +2,22 @@
 name: entradex
 description: Use the EntradeX CLI to interact with DNSE EntradeX API for authentication, account data, market data, orders, and trading operations.
 metadata:
-  entradex:
-    requires:
+  requires:
+    bins:
+      - entradex
+    env:
+      - DNSE_API_KEY
+      - DNSE_API_SECRET
+    files:
+      - ~/.entradex-cli/config.json
+  install:
+    - id: node
+      kind: node
+      package: entradex-cli
       bins:
         - entradex
-      env:
-        - DNSE_API_KEY
-        - DNSE_API_SECRET
-      files:
-        - ~/.entradex-cli/config.json
-    install:
-      - id: node
-        kind: node
-        package: entradex-cli
-        bins:
-          - entradex
-          - entradex-cli
-        label: Install EntradeX CLI (npm)
+        - entradex-cli
+      label: Install EntradeX CLI (npm)
 ---
 
 # EntradeX CLI
