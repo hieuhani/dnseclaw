@@ -1,4 +1,4 @@
-# dnse-cli
+# entradex-cli
 
 CLI for DNSE API - A Vietnamese securities trading platform.
 
@@ -14,7 +14,7 @@ The CLI requires API credentials to authenticate with the DNSE API. You can prov
 
 ### 1. Config File (Recommended)
 
-Store credentials locally in `~/.dnse-cli/config.json`:
+Store credentials locally in `~/.entradex-cli/config.json`:
 
 ```bash
 bun run index.ts config set --key "your-api-key" --secret "your-api-secret"
@@ -206,7 +206,7 @@ This project was created using `bun init` in bun v1.2.22. [Bun](https://bun.sh) 
 ### Project Structure
 
 ```
-dnse-cli/
+entradex-cli/
 ├── index.ts           # CLI entry point
 ├── config.ts          # Configuration management
 ├── commands/          # CLI command modules

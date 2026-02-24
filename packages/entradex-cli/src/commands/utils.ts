@@ -15,7 +15,7 @@ export function createClient(program: Command): DNSEClient {
     console.error(
       'Error: API key and secret are required.\n' +
       'Set them using:\n' +
-      '  1. "dnse config set" (saved to ~/.dnse-cli/config.json)\n' +
+      '  1. "dnse config set" (saved to ~/.entradex-cli/config.json)\n' +
       '  2. DNSE_API_KEY and DNSE_API_SECRET environment variables\n' +
       '  3. --api-key and --api-secret options'
     );

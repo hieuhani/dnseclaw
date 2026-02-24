@@ -12,12 +12,12 @@ const program = new Command();
 
 // Global options
 program
-  .name('dnse')
-  .description('CLI for DNSE API')
+  .name('entradex')
+  .description('CLI for DNSE EntradeX API')
   .version('1.0.0')
-  .option('--api-key <key>', 'DNSE API key', process.env.DNSE_API_KEY)
-  .option('--api-secret <secret>', 'DNSE API secret', process.env.DNSE_API_SECRET)
-  .option('--base-url <url>', 'DNSE API base URL', 'https://openapi.dnse.com.vn')
+  .option('--api-key <key>', 'DNSE EntradeX API key', process.env.DNSE_API_KEY)
+  .option('--api-secret <secret>', 'DNSE EntradeX API secret', process.env.DNSE_API_SECRET)
+  .option('--base-url <url>', 'DNSE EntradeX API base URL', 'https://openapi.dnse.com.vn')
   .option('--debug', 'Enable debug mode', false)
   .hook('preAction', (thisCommand) => {
     const options = thisCommand.opts();

@@ -8,7 +8,7 @@ export interface CliConfig {
   apiSecret?: string;
 }
 
-const CONFIG_DIR = join(homedir(), ".dnse-cli");
+const CONFIG_DIR = join(homedir(), ".entradex-cli");
 const CONFIG_FILE = join(CONFIG_DIR, "config.json");
 
 const DEFAULT_API_URL = "https://openapi.dnse.com.vn";

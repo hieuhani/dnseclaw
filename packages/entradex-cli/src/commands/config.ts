@@ -7,10 +7,10 @@ export function registerConfigCommands(program: Command): void {
 
   configCmd
     .command('set')
-    .description('Set API credentials (saved to ~/.dnse-cli/config.json)')
-    .option('--key <key>', 'DNSE API key')
-    .option('--secret <secret>', 'DNSE API secret')
-    .option('--url <url>', 'DNSE API base URL')
+    .description('Set API credentials (saved to ~/.entradex-cli/config.json)')
+    .option('--key <key>', 'DNSE EntradeX API key')
+    .option('--secret <secret>', 'DNSE EntradeX API secret')
+    .option('--url <url>', 'DNSE EntradeX API base URL')
     .action(async (options) => {
       const config: Record<string, string> = {};
 
@@ -96,5 +96,5 @@ function maskKey(key?: string): string {
 function configPath(): string {
   const { homedir } = require('node:os');
   const { join } = require('node:path');
-  return join(homedir(), '.dnse-cli', 'config.json');
+  return join(homedir(), '.entradex-cli', 'config.json');
 }
