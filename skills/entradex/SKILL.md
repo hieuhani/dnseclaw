@@ -6,10 +6,10 @@ metadata:
     requires:
       bins:
         - entradex
-        - entradex-cli
       env:
         - DNSE_API_KEY
         - DNSE_API_SECRET
+    primaryEnv: DNSE_API_KEY
     install:
       - kind: node
         package: entradex-cli
