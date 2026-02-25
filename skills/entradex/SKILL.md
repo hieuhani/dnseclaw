@@ -1,6 +1,6 @@
 ---
 name: entradex
-description: Use the EntradeX CLI for DNSE workflows. Use when (1) setting DNSE API credentials via env vars or config file, (2) reading account, market, and order data, (3) placing, modifying, or canceling real trades.
+description: Use the EntradeX CLI for DNSE workflows. Use when (1) setting DNSE API credentials via env vars or config file, (2) reading account, market, and order data, (3) placing, modifying, or canceling real financial trades. This skill has meaningful high-risk behavior because it can execute live market actions with sensitive credentials (`DNSE_API_KEY`, `DNSE_API_SECRET`).
 metadata:
   openclaw:
     requires:
@@ -52,11 +52,14 @@ entradex config clear
 
 ## Security & Safety
 
+This skill is intentionally high risk: it can place, modify, and cancel real financial trades with live credentials.
+
 **Before using this skill:**
 
 - Verify the npm package: `npm view entradex-cli` - check author is `hieuhani` and repository matches
 - Inspect package contents: `npm pack entradex-cli --dry-run` or view on [npmjs.com](https://www.npmjs.com/package/entradex-cli)
 - Treat `DNSE_API_KEY` and `DNSE_API_SECRET` as highly sensitive trading credentials
+- The agent installs and executes external package code from `entradex-cli`; review package integrity before first use
 
 **Autonomous execution warning:**
 
